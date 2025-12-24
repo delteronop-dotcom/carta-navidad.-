@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz navidad mi💞</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at bottom, #05070f, #000);
+      color: white;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    .stars::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      box-shadow:
+        20vw 10vh white, 40vw 30vh white, 60vw 20vh white,
+        80vw 40vh white, 10vw 70vh white, 50vw 80vh white,
+        70vw 60vh white, 30vw 50vh white;
+      animation: twinkle 3s infinite alternate;
+    }
+    @keyframes twinkle { from { opacity: .3; } to { opacity: 1; } }.moon {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #d9d9d9 60%, #bfbfbf 100%);
+  box-shadow: 0 0 40px rgba(255,255,255,.6);
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease forwards;
+}
+@keyframes fadeIn { from { opacity: 0; transform: scale(.8); } to { opacity: 1; transform: scale(1); } }
+
+.scene {
+  text-align: center;
+  max-width: 90%;
+  opacity: 0;
+  animation: show 2s forwards;
+}
+.scene.active { opacity: 1; }
+@keyframes show { to { opacity: 1; } }
+
+h1, p {
+  animation: textFade 2s ease forwards;
+}
+@keyframes textFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+button {
+  margin-top: 25px;
+  padding: 12px 30px;
+  font-size: 1em;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ffffff, #dcdcdc);
+  color: #000;
+  cursor: pointer;
+}
+button:hover { transform: scale(1.05); }
+
+  </style>
+</head>
+<body>
+  <div class="stars"></div>  <div id="scene1" class="scene active">
+    <div class="moon"></div>
+    <h1>Te quiero</h1>
+    <button onclick="nextScene(2)">a ti</button>
+  </div>  <div id="scene2" class="scene" style="display:none;">
+    <div class="moon"></div>
+    <h1>Te elijo</h1>
+    <button onclick="nextScene(3)">te quiero</button>
+  </div>  <div id="scene3" class="scene" style="display:none;">
+    <div class="moon"></div>
+    <p style="font-size:1.05em; line-height:1.6;">
+      Tus manos son mi caricia
+mis acordes cotidianos
+te quiero porque tus manos
+trabajan por la justicia
+
+si te quiero es porque sos
+mi amor mi cómplice y todo
+y en la calle codo a codo
+somos mucho más que dos
+
+tus ojos son mi conjuro
+contra la mala jornada
+te quiero por tu mirada
+que mira y siembra futuro
+
+tu boca que es tuya y mía
+tu boca no se equivoca
+te quiero porque tu boca
+sabe gritar rebeldía
+
+si te quiero es porque sos
+mi amor mi cómplice y todo
+y en la calle codo a codo
+somos mucho más que dos
+
+y por tu rostro sincero
+y tu paso vagabundo
+y tu llanto por el mundo
+porque sos pueblo te quiero
+
+y porque amor no es aureola
+ni cándida moraleja
+y porque somos pareja
+que sabe que no está sola
+
+te quiero en mi paraíso
+es decir que en mi país
+la gente viva feliz
+aunque no tenga permiso
+
+si te quiero es porque sos
+mi amor mi cómplice y todo
+y en la calle codo a codo
+somos mucho más que dos.
+    </p>
+  </div>  <script>
+    function nextScene(n) {
+      document.querySelectorAll('.scene').forEach(s => s.style.display = 'none');
+      const scene = document.getElementById('scene' + n);
+      scene.style.display = 'block';
+      setTimeout(() => scene.classList.add('active'), 50);
+    }
+  </script></body>
+</html>
